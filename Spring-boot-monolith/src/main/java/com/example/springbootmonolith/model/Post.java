@@ -55,7 +55,7 @@ public class Post {
     }
 
 
-    private Post(){}
+    public Post(){}
 
    public List<Comment> getComments(){return comments;}
 

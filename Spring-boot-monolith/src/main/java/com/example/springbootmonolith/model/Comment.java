@@ -29,7 +29,8 @@ public class Comment {
     /**
      * user_id references 'users' table.
      */
-    @ManyToOne(fetch=FetchType.LAZY)
+    @ManyToOne(cascade = {CascadeType.DETACH,
+            CascadeType.MERGE, CascadeType.REFRESH})
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
@@ -41,7 +42,7 @@ public class Comment {
     @JoinColumn(name = "post_id", nullable = false)
     private Post post;
 
-    private Comment() {}
+    public Comment() {}
 
     public Post getPost(){return post;}
 

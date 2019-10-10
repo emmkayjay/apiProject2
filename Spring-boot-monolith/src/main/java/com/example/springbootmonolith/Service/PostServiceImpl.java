@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PostServiceImpl implements PostService {
 
@@ -50,11 +52,6 @@ public class PostServiceImpl implements PostService {
         postRepository.deleteById(postId);
         return HttpStatus.OK;
     }
-
-//    @Override
-//    public Iterable<Post> listPostsByUserId(Long userId){
-//        Iterable<Post> newList = postRepository.findAllById(userId).get();
-//    }
 
 }
 

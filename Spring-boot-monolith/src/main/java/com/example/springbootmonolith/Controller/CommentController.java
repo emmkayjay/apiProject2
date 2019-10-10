@@ -8,20 +8,21 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/{username}")
 public class CommentController {
 
     @Autowired
     CommentService commentService;
 
-    @PostMapping("/comment/{postId}")
-    public Comment createComment(@RequestBody Comment newComment, @PathVariable Long postId) {
-        return commentService.createComment(newComment, postId);
+    @PostMapping("/{postId}/comment")
+    public Comment createComment(@RequestBody Comment newComment, @PathVariable Long postId, String username) {
+        return commentService.createComment(newComment, postId, username);
     }
 
     @GetMapping("/comment/list")
     public Iterable<Comment> listComments() { return commentService.listComments(); }
 
     @DeleteMapping("/comment/delete/{commentId}")
-    public HttpStatus deleteComment(Long commentId) { return commentService.deleteComment(commentId); }
+    public HttpStatus deleteComment(@PathVariable Long commentId) { return commentService.deleteComment(commentId); }
 
 }

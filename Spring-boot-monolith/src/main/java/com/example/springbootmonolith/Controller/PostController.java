@@ -7,23 +7,24 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/{username}")
 public class PostController {
 
     @Autowired
     public PostService postService;
 
-    @PostMapping("/post/{username}")
+    @PostMapping("/post")
     public Post createPost(@RequestBody Post newPost, @PathVariable String username) {
         return postService.createPost(newPost, username);
     }
 
-    @GetMapping("post/all/list")
+    @GetMapping("post/list")
     public Iterable<Post> listPosts() {
         return postService.listPosts();
     }
 
     @DeleteMapping("post/delete/{postId}")
-    public HttpStatus deletePost(Long postId) {
+    public HttpStatus deletePost(@PathVariable Long postId) {
         return postService.deletePost(postId);
     }
 

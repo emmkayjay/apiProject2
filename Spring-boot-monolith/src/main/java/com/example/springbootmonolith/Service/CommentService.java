@@ -12,7 +12,7 @@ public interface CommentService {
      * @param postId
      * @return
      */
-    public Comment createComment (Comment newComment, Long postId);
+    public Comment createComment (Comment newComment, Long postId, String username);
 
     /**
      *

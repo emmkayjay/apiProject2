@@ -29,11 +29,13 @@ public class CommentServiceImpl implements CommentService {
      * @return
      */
     @Override
-    public Comment createComment(Comment newComment, Long postId) {
+    public Comment createComment(Comment newComment, Long postId, String username) {
+        User user = userRepository.findByUsername(username);
         Post newPost = postRepository.findById(postId).get();
+        newComment.setUser(user);
         newComment.setPost(newPost);
+            return commentRepository.save(newComment);
 
-        return commentRepository.save(newComment);
     }
 
     /**
