@@ -1,12 +1,13 @@
 package com.example.springbootmonolith.Controller;
 
+import com.example.springbootmonolith.Repository.UserProfileRepository;
 import com.example.springbootmonolith.Service.UserProfileService;
 import com.example.springbootmonolith.model.UserProfile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/{username}")
+@RequestMapping("/profile")
 public class UserProfileController {
 
     @Autowired
@@ -21,13 +22,13 @@ public class UserProfileController {
     }
 
 
-    @GetMapping("/profile")
+    @GetMapping("/{username}")
     public UserProfile getUserProfile(@PathVariable String username) {
-        return userProfileService.getUserProfile(username);
+            return userProfileService.getUserProfile(username);
     }
 
-    @PostMapping("/profile")
-    public  UserProfile createUserProfile(@PathVariable String username, @RequestBody UserProfile newProfile) {
+    @PostMapping("/{username}")
+    public  UserProfile createUserProfile(@PathVariable String username, @RequestBody UserProfile newProfile) throws Exception{
         return userProfileService.createUserProfile(username, newProfile);
     }
 

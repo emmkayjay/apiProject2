@@ -10,6 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
+
 @RestController
 public class UserController {
 
@@ -25,13 +27,13 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody User user){
+    public ResponseEntity<?> login(@RequestBody User user) throws Exception {
         return ResponseEntity.ok(new JwtResponse(userService.login(user)));
     }
 
     @PostMapping("/signup")
-    public ResponseEntity<?> createUser(@RequestBody User newUser){
-        return ResponseEntity.ok(new JwtResponse(userService.createUser(newUser)));
+    public ResponseEntity<?> createUser(@RequestBody User newUser) throws Exception {
+            return ResponseEntity.ok(new JwtResponse(userService.createUser(newUser)));
     }
 
     @DeleteMapping("/user/{userId}")

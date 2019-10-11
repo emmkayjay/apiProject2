@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserProfileRepository extends CrudRepository<UserProfile, Long>{
 
-    @Query("from UserProfile up left join User u on u.username = ?1 and up.id = u.userProfile.id")
+    @Query("from UserProfile up inner join User u on u.username = ?1 and up.id = u.userProfile.id")
     public UserProfile findProfileByUsername(String username);
 
 }

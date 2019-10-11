@@ -35,7 +35,6 @@ public class CommentServiceImpl implements CommentService {
         newComment.setUser(user);
         newComment.setPost(newPost);
             return commentRepository.save(newComment);
-
     }
 
     /**

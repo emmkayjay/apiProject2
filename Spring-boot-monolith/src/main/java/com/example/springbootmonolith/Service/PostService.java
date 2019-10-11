@@ -3,6 +3,8 @@ package com.example.springbootmonolith.Service;
 import com.example.springbootmonolith.model.Post;
 import org.springframework.http.HttpStatus;
 
+import java.util.List;
+
 public interface PostService {
 
     /**

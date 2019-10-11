@@ -26,10 +26,11 @@ public class PostServiceImpl implements PostService {
      */
     @Override
     public Post createPost(Post newPost, String username) {
-        User user = userRepository.findByUsername(username);
-        newPost.setUser(user);
+         User user = userRepository.findByUsername(username);
+         newPost.setUser(user);
 
-        return postRepository.save(newPost);
+         return postRepository.save(newPost);
+
     }
 
     /**
@@ -52,6 +53,9 @@ public class PostServiceImpl implements PostService {
         postRepository.deleteById(postId);
         return HttpStatus.OK;
     }
+
+
+
 
 }
 

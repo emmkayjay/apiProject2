@@ -1,16 +1,15 @@
 package com.example.springbootmonolith.controller;
 
 
-import com.example.springbootmonolith.Controller.UserController;
 import com.example.springbootmonolith.Config.JwtUtil;
-import com.example.springbootmonolith.model.User;
+import com.example.springbootmonolith.Controller.UserController;
 import com.example.springbootmonolith.Service.UserService;
+import com.example.springbootmonolith.model.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
@@ -87,6 +86,11 @@ public class UserControllerTest {
                 .andReturn();
 
         System.out.println(result.getResponse().getContentAsString());
+    }
+
+    @Test
+    public void deleteUser_Success() throws Exception{
+
     }
 
     private static String createUserInJson (String name, String password) {

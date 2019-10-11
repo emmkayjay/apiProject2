@@ -23,14 +23,15 @@ public class UserProfileServiceImpl implements UserProfileService {
      * @return
      */
     @Override
-    public UserProfile createUserProfile(String username, UserProfile newProfile) {
+    public UserProfile createUserProfile(String username, UserProfile newProfile) throws Exception {
         User user = userService.getUser(username);
         newProfile.setUser(user);
+        user.setUserProfile(newProfile);
         if (user != null){
             return userProfileRepository.save(newProfile);
         }else {
-            System.out.println("You must be logged in to update your profile.");
-        }return null;
+            throw new Exception("You must be logged in to update your profile.");
+        }
     }
 
     /**

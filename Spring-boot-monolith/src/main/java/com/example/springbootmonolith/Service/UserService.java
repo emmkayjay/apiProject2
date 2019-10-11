@@ -5,6 +5,8 @@ import com.example.springbootmonolith.model.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
+import java.io.IOException;
+
 public interface UserService extends UserDetailsService {
 
     /**
@@ -12,14 +14,14 @@ public interface UserService extends UserDetailsService {
      * @param user
      * @return
      */
-    public String login (User user);
+    public String login (User user) throws Exception;
 
     /**
      *
      * @param newUser
      * @return
      */
-    public String createUser (User newUser);
+    public String createUser (User newUser) throws Exception;
 
 
     /**
@@ -41,4 +43,6 @@ public interface UserService extends UserDetailsService {
      * @return
      */
     public HttpStatus deleteById(Long userId);
+
+
 }

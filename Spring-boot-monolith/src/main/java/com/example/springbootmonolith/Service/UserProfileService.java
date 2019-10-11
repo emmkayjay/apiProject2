@@ -10,7 +10,7 @@ public interface UserProfileService {
      * @param newProfile
      * @return
      */
-    public UserProfile createUserProfile(String username, UserProfile newProfile);
+    public UserProfile createUserProfile(String username, UserProfile newProfile)throws Exception;
 
     /**
      *
@@ -18,4 +18,6 @@ public interface UserProfileService {
      * @return
      */
     public UserProfile getUserProfile(String username);
+
+
 }

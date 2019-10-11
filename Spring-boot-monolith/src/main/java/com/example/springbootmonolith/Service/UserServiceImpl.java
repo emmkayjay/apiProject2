@@ -4,6 +4,7 @@ import com.example.springbootmonolith.Config.JwtUtil;
 import com.example.springbootmonolith.Repository.CommentRepository;
 import com.example.springbootmonolith.Repository.PostRepository;
 import com.example.springbootmonolith.Repository.UserRepository;
+import com.example.springbootmonolith.model.Post;
 import com.example.springbootmonolith.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,6 +14,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,21 +41,21 @@ public class UserServiceImpl implements UserService{
     JwtUtil jwtUtil;
 
     /**
-     *
+     *Throws exception if password/username are incorrect.
      * @param user
      * @return
      */
     @Override
-    public String login(User user){
+    public String login(User user) throws Exception {
         User newUser = userRepository.findByUsername(user.getUsername());
         if(newUser != null && user.getPassword().equals(newUser.getPassword())){
             UserDetails userDetails = loadUserByUsername(newUser.getUsername());
 
             return jwtUtil.generateToken(userDetails);
         }else{
-            System.out.println("Username or Password are incorrect. Please try again.");
+            throw new Exception("Username or Password are incorrect. Please try again.");
         }
-        return null;
+
     }
 
     /**
@@ -62,7 +64,7 @@ public class UserServiceImpl implements UserService{
      * @return
      */
     @Override
-    public String createUser(User newUser) {
+    public String createUser(User newUser) throws Exception{
         newUser.setUsername(newUser.getUsername());
         newUser.setPassword(newUser.getPassword());
         newUser.setEmail(newUser.getEmail());
@@ -70,10 +72,9 @@ public class UserServiceImpl implements UserService{
             UserDetails userDetails = loadUserByUsername(newUser.getUsername());
             return jwtUtil.generateToken(userDetails);
         }
-        else{
-            System.out.println("Username already exists, please choose another.");
+        else {
+            throw new Exception("Username or Email already in use, please choose another.");
         }
-        return null;
     }
 
     /**
@@ -134,6 +135,5 @@ public class UserServiceImpl implements UserService{
 
         return authorities;
     }
-
 
 }
