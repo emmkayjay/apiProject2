@@ -4,6 +4,7 @@ import com.example.springbootmonolith.Service.UserProfileService;
 import com.example.springbootmonolith.model.UserProfile;
 
 public class UserProfileServiceStub implements UserProfileService {
+
     @Override
     public UserProfile createUserProfile(String username, UserProfile newProfile) {
         UserProfile userProfile = new UserProfile();

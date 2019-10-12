@@ -6,25 +6,24 @@
   <meta charset="utf-8">
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
-  <title>PENNY</title>
+  <title>PEN-NY</title>
 </head>
 
+  <header>
         <div class="navbar">
             <nav>
               <ul class="nav-links">
               <li><a class="navitem"href="#">HOME</a></li>
               <li><a class="navitem"href="#">SIGNUP</a></li>
               <li><a class="navitem"href="#">LOGOUT</a></li>
+              <li> <img src="smallerlogo.png" alt="website logo"> </li>
               </ul>
             </nav>
         </div>
+  </header>
 
-    <header>
-      </header>
-
-
-  <body>
-    <div class="signup-forms">
+<body>
+    <div class="signupBar">
           <form>
               <label for="email"> <b>EMAIL</b> </label>
 ​                   <input
@@ -49,17 +48,25 @@
 ​
                     <button
                     type="submit"
-                    id="popUpEnter"
+                    id="LOGIN"
+                    onclick="logIn(event)"
                     >LOG IN
+                    </button>
+
+                    <button
+                      type="submit"
+                      id="SIGNUP"
+                      onclick="signUp(event)"
+                      >SIGN UP
                     </button>
             </form>
         </div>
-<div class="content-wrapper">
+<div class="contentWrapper">
 
-      <div class="post-container">
+      <div class="postContainer">
               <h2> POST SOMETHING </h2>
 
-  ​           <div class="post-form">
+  ​           <div class="postForm">
                 <form>
                   <label for="title"> <b> TITLE </b> </label>
                     <br>
@@ -75,17 +82,20 @@
                   placeholder="BODY"
                   class="body">
                 </form>
-</div>
-                ​<h2> ALL POSTS </h2>
+            </div>
+
+            <h2> ALL POSTS </h2>
+            <div class="allPosts"
                 <ul class="allPosts">
                 </ul>
+            </div>
   ​    </div>
 
-​       <div class="user-container">
+​       <div class="userContainer">
             <form>
 ​              <h2> PROFILE </h2>
-​                 <label for="location"
-                        class="profile-forms">
+              <div class="profileForms">
+​                 <label for="location">
                         <b>LOCATION</b>
                 </label>
 ​                     <input
@@ -94,34 +104,37 @@
                       class="location"
                       required>
 ​
-                <label for="BIO"
-                    class="profile-forms"> <b>BIO</b> </label>
+                <label for="BIO"> <b>BIO</b> </label>
 ​                     <input
                       type="text"
                       placeholder="ENTER BIO"
                       class="bio"
                       required>
 ​
-                  <label for="mobile" class="profile-forms"> <b>MOBILE</b> </label>
-​                       <input
+                  <label for="mobile"> <b>MOBILE</b> </label>
+​                       <input class="mobile"
                         type="text"
                         placeholder="MOBILE">
                 <button
                 type="submit"
                 id="profilesubmit"
+                onclick="profile(event)"
                 > SUBMIT </button>
             </form>
+          </div>
 
-            ​<h2> YOUR POSTS </h2>
-            <ul class="userPosts">
-            </ul>
-
+            <h2> YOUR POSTS </h2>
+            <div class="profilePosts">
+              <ul class="userPosts"> <br> </ul>
+          </div>
 ​     </div>
   </div>
-​
+​</div>
   <script src="main.js"> </script>
-​
-  <footer> "PEN-NY for your thoughts" &copy; 2019 </footer>
-​
-</body>
+
+​<footer>
+  <div class="footer">
+    <p>"PEN-NY For Your Thoughts" &copy; 2019 </p></div>
+  </footer>
+​</body>
 </html>
