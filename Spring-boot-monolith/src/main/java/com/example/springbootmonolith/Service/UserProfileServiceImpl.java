@@ -35,7 +35,7 @@ public class UserProfileServiceImpl implements UserProfileService {
     }
 
     /**
-     *
+     * Method continues to return user ID as null.  database reflects user ID in user profile table.
      * @param username
      * @return
      */

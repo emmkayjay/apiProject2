@@ -16,7 +16,8 @@
               <li><a class="navitem"href="#">HOME</a></li>
               <li><a class="navitem"href="#">SIGNUP</a></li>
               <li><a class="navitem"href="#">LOGOUT</a></li>
-              <li> <img src="smallerlogo.png" alt="website logo"> </li>
+              <li>
+                <img id="siteLogo" src="pen-ny.png" alt="website logo"> </li>
               </ul>
             </nav>
         </div>
@@ -81,14 +82,22 @@
                   type="text"
                   placeholder="BODY"
                   class="body">
+
+                  <button
+                    type="submit"
+                    id="CREATEPOST"
+                    onclick="createPost(event)"
+                    >SUBMIT
+                  </button>
+
                 </form>
             </div>
 
             <h2> ALL POSTS </h2>
-            <div class="allPosts"
+
                 <ul class="allPosts">
                 </ul>
-            </div>
+
   ​    </div>
 
 ​       <div class="userContainer">

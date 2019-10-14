@@ -43,7 +43,7 @@ public class Post {
      */
     @JsonIgnore
     @OneToMany(mappedBy = "post",
-            cascade = CascadeType.ALL)
+            cascade = {CascadeType.MERGE, CascadeType.REFRESH,CascadeType.REMOVE})
     private List<Comment> comments;
 
     public List<Comment> addComment (Comment comment){

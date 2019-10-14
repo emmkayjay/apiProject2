@@ -19,4 +19,5 @@ public class UserProfileServiceStub implements UserProfileService {
     public UserProfile getUserProfile(String username) {
         return null;
     }
+
 }

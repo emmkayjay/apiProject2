@@ -41,8 +41,11 @@ public class User {
     //CascadeType.MERGE allows for the columns to join.
     // CascadeType.ALL creates functionality redundancies.
     // Original error was "detached entity passed to persist."
-    @OneToOne (cascade = {CascadeType.MERGE, CascadeType.REFRESH,CascadeType.REMOVE})
-    @JoinColumn (name = "user_profile_id")
+    @JsonIgnore
+    @OneToOne (mappedBy ="user",
+            fetch = FetchType.LAZY,
+            optional = false,
+            cascade = CascadeType.ALL)
     private UserProfile userProfile;
 
     /**
@@ -59,7 +62,8 @@ public class User {
     @JsonIgnore
     @OneToMany(mappedBy = "user",
             cascade = {CascadeType.MERGE, CascadeType.REFRESH,CascadeType.REMOVE})
-        private List<Comment> comments;
+    private List<Comment> comments;
+
 
     public User() {
     }

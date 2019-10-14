@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 
 @Service
 public class CommentServiceImpl implements CommentService {
@@ -26,13 +28,15 @@ public class CommentServiceImpl implements CommentService {
      *
      * @param newComment
      * @param postId
-     * @return
+     * @return This method requires an additional tie-back to the user.
+     * ex. (user.setComment(newComment)) but the setComment method does not exist in user model.
+     * Comments are associated to the user model as a List.  user.addComment method returns a null value.
      */
     @Override
     public Comment createComment(Comment newComment, Long postId, String username) {
         User user = userRepository.findByUsername(username);
-        Post newPost = postRepository.findById(postId).get();
         newComment.setUser(user);
+        Post newPost = postRepository.findById(postId).get();
         newComment.setPost(newPost);
             return commentRepository.save(newComment);
     }

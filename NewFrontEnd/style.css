@@ -12,17 +12,18 @@ nav {
   margin: 0 auto;
 }
 .navbar {
-  width: 1000px;
+  width: 100%;
   height: 150px;
   display: flex;
-  align-self: center;
-  justify-content: center;
+  margin: 0px 0px 0px 100px;
+  justify-content: flex-start;
 }
 
 .nav-links {
   list-style: none;
-  align-items: center;
   display: flex;
+  align-content: center;
+  justify-content: space-around;
 }
 
 .navitem {
@@ -37,22 +38,58 @@ nav {
   font-weight: bold;
 }
 
+#siteLogo {
+  height: 120px;
+  width: auto;
+  overflow: hidden;
+}
+
 body {
   font-family: 'Poppins', sans-serif;
   color: #3f663c;
   display: table-cell;
   vertical-align: middle;
 }
+label, h2, button {
+  border: 1px solid #026816;
+  color: white;
+  background-color: rgba(128, 180, 139, 0.85);
+  margin: 5px;
+  text-align: center;
+
+}
+button, input {
+  height: 30px;
+  width: 125px;
+  text-align: center;
+}
+
+label {
+  padding: 5px;
+  font-size: 14px;
+}
+
+button {
+  font-size: 14px;
+}
+
+button:hover {
+  background-color: #bd8034;
+}
+
+li {
+  text-align: center;
+  align-self: center;
+}
 
 .signupBar {
   background: rgba(183, 183, 183, 0.5);
   width: 100%;
-  height: 40px;
+  height: 50px;
   display: flex;
   flex-direction: row;
-  align-self: center;
   align-content: center;
-  justify-content: space-between;
+  justify-content: space-around;
   margin: 0 auto;
 }
 
@@ -63,41 +100,53 @@ body {
   justify-content: space-around;
   background: url(BACKGROUND-TRANSPARENCY.png) center center fixed;
   background-size: contain;
-  /* -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover; */
 }
 
 .postContainer {
   flex: 2;
+  padding: 5px;
+  margin: 10px;
 }
 
 .postForm {
-  width: 150px;
-  height: 150px;
-  background-color: rgba(229, 229, 229, 0.5);
-  display: block;
+  width: 195px;
+  height: 195px;
+  background-color: rgba(229, 229, 229, 0.6);
+  display: flex;
+  flex-direction: column;
   text-align: center;
+  align-items: center;
+  justify-content: space-around;
 }
 .allPosts {
-  background-color: rgba(229, 229, 229, 0.5);
+margin: 10px auto;
+display: grid;
+height: 700px;
+width: 80%;
+overflow-y: scroll;
+border: 3px solid #9EA3A0;
+background-color: white;
+border: none;
+box-shadow: 0px 20px 30px #393985;
+margin-bottom: 100px;
 }
 
 .userContainer {
   flex: 1;
+  padding: 5px;
+  margin: 10px;
 }
 
 .profileForms {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: rgba(229, 229, 229, 0.5);
+  background-color: rgba(229, 229, 229, 0.6);
   margin: 5px 0px 5px 0px;
 }
 
 .profilePosts {
-  background-color: rgba(229, 229, 229, 0.5);
+  background-color: rgba(229, 229, 229, 0.6);
     margin: 75px 0px 15px 0px;
 
 }
@@ -107,10 +156,64 @@ footer {
   position: fixed;
   width: 100%;
 }
+
 .footer {
-  background-color: rgba(229, 229, 229, 0.5);
+  background-color: rgba(229, 229, 229, 0.6);
   height: 35px;
   width: 100%;
   text-align: center;
+}
 
+img {
+  height: 120px;
+  width: auto;
+  overflow: hidden;
+}
+
+.allPosts {
+  margin: 10px auto;
+display: grid;
+height: 700px;
+width: 80%;
+overflow-y: scroll;
+border: 3px solid #9EA3A0;
+background-color: white;
+border: none;
+box-shadow: 0px 20px 30px #393985;
+margin-bottom: 100px;
+}
+
+.commentContainer {
+  box-shadow: 0px 20px 30px #393985;
+  width: 80%;
+  margin: 10px auto;
+  display: grid;
+  height: 50px;
+}
+
+img {
+  height: 120px;
+  width: auto;
+  overflow: hidden;
+}
+
+.allPosts {
+  margin: 10px auto;
+display: grid;
+height: 700px;
+width: 80%;
+overflow-y: scroll;
+border: 3px solid #9EA3A0;
+background-color: white;
+border: none;
+box-shadow: 0px 20px 30px #393985;
+margin-bottom: 100px;
+}
+
+.commentContainer {
+  box-shadow: 0px 20px 30px #393985;
+  width: 80%;
+  margin: 10px auto;
+  display: grid;
+  height: 50px;
 }

@@ -21,7 +21,7 @@ public class PostServiceImpl implements PostService {
 
     /**
      *
-     * @param newPost
+     * @param newPost, username
      * @return saved post.
      */
     @Override
